@@ -1,0 +1,12 @@
+{
+    "name": "aspnetnodejsexample",
+    "version": "1.0.0",
+    "private": true,
+    "description": "",
+    "main": "index.js",
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "puppeteer": "^1.8.0"
+    }
+}
