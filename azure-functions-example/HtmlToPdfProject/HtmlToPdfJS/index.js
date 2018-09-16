@@ -40,16 +40,21 @@ module.exports = async function (context, req) {
     context.log('JavaScript HTTP trigger function processed a request.');
 
     if (req.body && typeof req.body === 'string') {
-        const stream = await convertHTMLToPDF(req.body);
-
-        context.res = {
-            status: 200,
-            body: stream,
-            headers: {
-                'Content-type': 'application/pdf',
-                'Content-length': stream.length
-            }
-        };
+        try {
+            const stream = await convertHTMLToPDF(req.body);
+            context.res = {
+                status: 200,
+                body: stream,
+                headers: {
+                    'Content-type': 'application/pdf',
+                    'Content-length': stream.length
+                }
+            };
+        }
+        catch (error) {
+            context.log(`=== Function failed: ${error}`);
+            throw error;
+        }
     }
     else {
         context.res = {
