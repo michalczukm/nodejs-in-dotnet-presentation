@@ -14,18 +14,7 @@ const convertHTMLToPDF = async (html, options = {}) => {
     
     const browser = await puppeteer.launch();
     const page = await browser.newPage();   
-
-    await page.setRequestInterception(true);
-
-    page.once('request', request => {
-        request.respond({
-            body: html
-        });
-
-        request.continue();
-    });
-
-    await page.goto('https://example.com');
+    await page.setContent(html);
 
     try {
         return await page.pdf({...defaultOptions, options});
@@ -39,7 +28,6 @@ const convertHTMLToPDF = async (html, options = {}) => {
 
 module.exports = async (result, html, options = {}) => {
     const pdfBuffer = await convertHTMLToPDF(html, options);
-
     const bufferStream = new stream.PassThrough();
     bufferStream.end(pdfBuffer);
     bufferStream.pipe(result.stream);

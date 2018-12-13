@@ -37,7 +37,6 @@ namespace AspNetNodeJsExample
                 app.UseHsts();
             }
 
-            app.UseHttpsRedirection();
             app.UseMvc();
         }
     }
