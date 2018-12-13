@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.NodeServices;
 
 namespace AspNetNodeJsExample.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api")]
     [ApiController]
     public class ExampleController : ControllerBase
     {
