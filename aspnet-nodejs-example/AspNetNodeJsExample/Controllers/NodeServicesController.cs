@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.IO;
+﻿using System.IO;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.NodeServices;
@@ -8,7 +7,7 @@ namespace AspNetNodeJsExample.Controllers
 {
     [Route("api")]
     [ApiController]
-    public class ExampleController : ControllerBase
+    public class NodeServicesController : ControllerBase
     {
         [HttpPost("pdf")]
         public async Task<FileStreamResult> ConvertToPdf(

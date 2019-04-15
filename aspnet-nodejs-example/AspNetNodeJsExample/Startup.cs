@@ -22,6 +22,7 @@ namespace AspNetNodeJsExample
             services
                 .AddMvc(options => options.InputFormatters.Insert(0, new RawBodyInputFormatter()))
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            
             services.AddNodeServices();
         }
 
